@@ -1,0 +1,1091 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>XONARA — Seven in Frame</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #100708;
+            color: #ffffff;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        :root {
+            --red: #e51b37;
+            --dark: #100708;
+            --white: #ffffff;
+        }
+
+nav {
+    background-image:
+        linear-gradient(
+            rgba(16, 7, 8, 0.65),
+            rgba(16, 7, 8, 0.85)
+        ),
+         url("XONARA GROUP.JPG");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-menu {
+    min-height: 250px;
+    padding: 30px 20px;
+
+    background-image:
+        linear-gradient(
+            rgba(16, 7, 8, 0.55),
+            rgba(16, 7, 8, 0.90)
+        ),
+        url("XONARA GROUP.JPG");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+.menu-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.menu-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* HOMEPAGE HERO */
+
+.hero {
+    min-height: 75vh;
+    padding: 100px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-subtitle {
+    color: #bbbbbb;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(42px, 10vw, 75px);
+    letter-spacing: 3px;
+    line-height: 1.1;
+}
+
+.hero-title span {
+    color: #e51b37;
+}
+
+.hero-description {
+    max-width: 450px;
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-top: 22px;
+}
+
+.hero-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 25px;
+    background: #e51b37;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ABOUT SECTION */
+
+.about-section {
+    padding: 90px 25px;
+    background: #170b0d;
+    text-align: center;
+}
+
+.section-label {
+    color: #e51b37;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    letter-spacing: 2px;
+}
+
+.section-title span {
+    color: #e51b37;
+}
+
+.about-description {
+    max-width: 600px;
+    margin: 25px auto 40px;
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 2;
+    white-space: pre-line;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 650px;
+    margin: auto;
+}
+
+.stat-card {
+    padding: 25px 10px;
+    border: 1px solid #492027;
+    background: #100708;
+}
+
+.stat-card h3 {
+    color: #e51b37;
+    font-family: 'Oswald', sans-serif;
+    font-size: 27px;
+}
+
+.stat-card p {
+    margin-top: 8px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #cccccc;
+}
+
+/* MEMBERS SECTION */
+
+.members-section {
+    padding: 90px 22px;
+    background: #100708;
+    text-align: center;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    max-width: 900px;
+    margin: 45px auto 0;
+}
+
+.member-card {
+    cursor: pointer;
+    text-align: left;
+    background: #170b0d;
+    border: 1px solid #35171d;
+    transition: 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    border-color: #e51b37;
+}
+
+.member-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.member-card h3 {
+    padding: 15px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+/* MEMBER PROFILE POP-UP */
+
+.member-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.94);
+    padding: 25px 15px;
+    overflow-y: auto;
+}
+
+.member-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    margin: auto;
+    padding: 25px;
+    background: #170b0d;
+    border: 1px solid #492027;
+    text-align: left;
+}
+
+.member-close {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 15px;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.member-profile-image {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.member-profile-name {
+    margin-top: 22px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+.member-profile-birthday {
+    margin-top: 8px;
+    color: #e51b37;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.member-profile-bio {
+    margin-top: 22px;
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.member-profile-facts {
+    margin-top: 22px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 2;
+}
+
+@media (max-width: 420px) {
+    .members-grid {
+        gap: 12px;
+    }
+
+    .member-card h3 {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+.member-real-name {
+    color: #bbbbbb;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* MUSIC SECTION */
+
+.music-section {
+    padding: 90px 22px;
+    background: #170b0d;
+    text-align: center;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    max-width: 900px;
+    margin: 45px auto 0;
+}
+
+.music-card {
+    background: #100708;
+    border: 1px solid #35171d;
+    text-align: left;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.music-card:hover {
+    transform: translateY(-5px);
+    border-color: #e51b37;
+}
+
+.music-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.music-info {
+    padding: 16px;
+}
+
+.music-info h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.music-info p {
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 7px;
+}
+
+.music-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #e51b37;
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 420px) {
+    .music-grid {
+        gap: 12px;
+    }
+
+    .music-info {
+        padding: 11px;
+    }
+
+    .music-info h3 {
+        font-size: 16px;
+    }
+}
+
+/* GALLERY SECTION */
+
+.gallery-section {
+    padding: 90px 22px;
+    background: #100708;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    max-width: 950px;
+    margin: 45px auto 0;
+}
+
+.gallery-item {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #170b0d;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.download-button {
+    display: block;
+    padding: 13px 8px;
+    background: #e51b37;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.download-button:hover {
+    background: #b9152b;
+}
+
+@media (max-width: 420px) {
+    .gallery-grid {
+        gap: 8px;
+    }
+}
+
+.download-button {
+    display: block;
+    padding: 13px 8px;
+    background: #e51b37;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.download-button:hover {
+    background: #b9152b;
+}
+
+/* BRANDS SECTION */
+.brands-section {
+    padding: 90px 22px;
+    background: #100708;
+    text-align: center;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    max-width: 950px;
+    margin: 45px auto 0;
+    text-align: left;
+}
+
+.brand-card {
+    background: #170b0d;
+    overflow: hidden;
+}
+
+.brand-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.brand-info {
+    padding: 16px;
+}
+
+.brand-info h3 {
+    color: #e51b37;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin: 0 0 8px;
+}
+
+.brand-info p {
+    color: #bbbbbb;
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media (max-width: 420px) {
+    .brands-grid {
+        gap: 10px;
+    }
+
+    .brand-info {
+        padding: 11px;
+    }
+}
+
+/* FOOTER */
+.site-footer {
+    background: #080405;
+    padding: 55px 20px 30px;
+    text-align: center;
+    border-top: 1px solid #351016;
+}
+
+.site-footer h2 {
+    color: #e51b37;
+    font-family: 'Oswald', sans-serif;
+    font-size: 38px;
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+.footer-tagline {
+    color: #ffffff;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin: 8px 0 25px;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-bottom: 35px;
+}
+
+.footer-socials a {
+    color: #bbbbbb;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.footer-socials a:hover {
+    color: #e51b37;
+}
+
+.footer-credit {
+    color: #e51b37;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.footer-copyright {
+    color: #777777;
+    font-size: 8px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- WEBSITE CONTENT GOES HERE -->
+
+<nav class="main-menu">
+    <div class="menu-logo">XONARA</div>
+
+    <div class="menu-links">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#members">MEMBERS</a>
+        <a href="#music">MUSIC</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#brands">BRANDS</a>
+    </div>
+
+<!-- HOMEPAGE HERO -->
+<section id="home" class="hero">
+    <p class="hero-subtitle">WELCOME TO THE WORLD OF</p>
+
+    <h1 class="hero-title">
+        SEVEN <span>IN</span> FRAME
+    </h1>
+
+    <p class="hero-description">
+        Seven personalities. One identity.
+        Discover XONARA, the seven-member P-pop girl group
+        under 1Z Entertainment.
+    </p>
+
+    <a href="#about" class="hero-button">
+        DISCOVER XONARA
+    </a>
+</section>
+
+<!-- ABOUT XONARA -->
+<section id="about" class="about-section">
+
+    <p class="section-label">GET TO KNOW US</p>
+
+    <h2 class="section-title">
+        ABOUT <span>XONARA</span>
+    </h2>
+
+    <p class="about-description">
+        XONARA is a seven-member P-pop girl group
+        under 1Z Entertainment.
+
+        Seven different personalities come together
+        to create one identity through music,
+        performance, and individuality.
+    </p>
+
+    <div class="about-stats">
+
+        <div class="stat-card">
+            <h3>07</h3>
+            <p>MEMBERS</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>1Z</h3>
+            <p>ENTERTAINMENT</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>XORA</h3>
+            <p>FANDOM</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+</nav>
+
+<!-- HOMEPAGE HERO -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <p class="hero-label">WELCOME TO THE WORLD OF</p>
+        <h1>SEVEN <span>IN</span> FRAME</h1>
+        <p class="hero-description">
+            Seven personalities. One identity.
+            Discover the world of XONARA.
+        </p>
+      
+    </div>
+</section>
+
+<!-- MEMBERS SECTION -->
+<section id="members" class="members-section">
+
+    <p class="section-label">MEET THE GIRLS</p>
+
+    <h2 class="section-title">
+        THE <span>MEMBERS</span>
+    </h2>
+
+    <p class="about-description">
+        Get to know the seven personalities
+        that make XONARA.
+    </p>
+
+    <div class="members-grid" id="membersGrid">
+
+        <!-- Member cards will be added here by JavaScript -->
+
+    </div>
+
+</section>
+
+<!-- MEMBER PROFILE POP-UP -->
+<div class="member-modal" id="memberModal">
+
+    <div class="member-modal-content">
+
+        <button class="member-close"
+            onclick="closeMember()">
+            &times;
+        </button>
+
+        <div id="memberProfile"></div>
+
+    </div>
+
+</div>
+
+<script>
+/* XONARA MEMBER PROFILES */
+
+const members = [
+    {
+        name: "EUREKAH",
+        realName: "Eurekah Jasmine L. Lope",
+        image: "EUREKAH.JPG",
+        birthday: "DECEMBER 4, 2004",
+        bio: "Eurekah is XONARA's leader, main rapper, and lead dancer. Before becoming a trainee, she was already a fan of SB19. She may be quiet around unfamiliar people, but becomes more talkative when comfortable.",
+        facts: [
+            "Whether she’s writing lyrics, showcasing her rap skills, or leading with purpose, Eurekah brings together intelligence, passion, and creativity, proving that true artistry goes beyond talent.",
+            "Eurekah is the creative mind behind XONARA’s words and stories."
+
+        ]
+    },
+    {
+        name: "ELLA",
+        realName: "Jania Mikaella S. Jao",
+        image: "ELLA.JPG",
+        birthday: "OCTOBER 30, 2005",
+        bio: "Ella is XONARA's visual and lead vocalist. She shared how she contributed to shaping the group's debut single, TABI, and believes music can offer comfort to listeners.",
+        facts: [
+            "Ella connects with fans through her gentle presence and meaningful expression, showing that strength can also come from simply being yourself.",
+            "Ella brings a sense of softness and depth to XONARA."
+
+        ]
+    },
+    {
+        name: "TIN",
+        realName: "Christine Rose O. Aragoncillo",
+        image: "TIN.JPG",
+        birthday: "NOVEMBER 24, 2003",
+        bio: "Tin is XONARA's lead rapper and dancer. Her journey as a trainee involved dedication and persistent practice. She has also shared her experiences of finding confidence in her place onstage.",
+        facts: [
+            "A rapper and writer, she brings bold energy and creative storytelling to the group.",
+            "Practiced dancing outside her usual training environment",
+            "Collaborated with Ruby Ibarra on IMPERFECT"
+        ]
+    },
+    {
+        name: "LEI",
+        realName: "Aleisha Therese F. Leopoldo",
+        image: "LEI.JPG",
+        birthday: "MAY 25, 2007",
+        bio: "Calm, confident, and naturally captivating, she brings a unique charm to XONARA. With her smooth vocals and subtle charisma, she adds depth to the group’s sound and a distinct touch to its identity.",
+        facts: [
+            "Joined XONARA through 1Z's talent selection",
+            "Has expressed interest in a heels dance concept",
+            "Values XONARA's authentic identity"
+        ]
+    },
+    {
+        name: "MEGUMI",
+        realName: "Megumi Kate N. Ishii",
+        image: "MEGUMI.JPG",
+        birthday: "APRIL 14, 2006",
+        bio: "Megumi is XONARA's main dancer, sub-vocalist, and sub-rapper. She caught attention during a dance battle at a 1Z Entertainment launch party.",
+        facts: [
+            "Curious and full of personality, Megumi embraces new experiences and brings versatility, energy, and a playful charm to the group.",
+            "Sassy, energetic, and unapologetically expressive, Megumi brings a bold Y2K-inspired edge to XONARA.",
+        ]
+    },
+    {
+        name: "DOMINIQUE",
+        realName: "Fionnah Dominique T. Pepino",
+        image: "DOMINIQUE.JPG",
+        birthday: "JUNE 13, 2005",
+        bio: "Dominique is XONARA's lead vocalist. She embraces the different personalities within the group and sees music as something that can connect people beyond language.",
+        facts: [
+            "Confident and unapologetically bold, Dominique brings a cool attitude, strong presence, and distinctive style to XONARA.",
+            "Believes music can bridge language differences",
+        ]
+    },
+    {
+        name: "NAMIE",
+        realName: "Raniella P. Baconawa",
+        image: "NAMIE.JPG",
+        birthday: "FEBRUARY 20, 2006",
+        bio: "Namie is XONARA's main vocalist. She became part of the group through a nationwide talent search. She believes the members' different personalities make XONARA relatable.",
+        facts: [
+            "Bright and bubbly, Namie brings endless energy and infectious charm to XONARA.",
+            "Behind her playful personality is a powerful vocalist with undeniable stage presence."
+        
+        ]
+    }
+];
+
+/* DISPLAY THE SEVEN MEMBER PHOTOS */
+
+const membersGrid = document.getElementById("membersGrid");
+
+members.forEach((member, index) => {
+    const card = document.createElement("div");
+    card.className = "member-card";
+
+    card.innerHTML = `
+        <img src="${member.image}" alt="${member.name}">
+        <h3>${member.name}</h3>
+    `;
+
+    card.addEventListener("click", () => openMember(index));
+    membersGrid.appendChild(card);
+});
+
+/* OPEN INDIVIDUAL MEMBER PROFILE */
+
+function openMember(index) {
+    const member = members[index];
+
+    document.getElementById("memberProfile").innerHTML = `
+        <img
+            class="member-profile-image"
+            src="${member.image}"
+            alt="${member.name}"
+        >
+
+        <h2 class="member-profile-name">${member.name}</h2>
+
+<p class="member-real-name">
+    ${member.realName}
+</p>
+
+        <p class="member-profile-birthday">
+            BIRTHDAY: ${member.birthday}
+        </p>
+
+        <p class="member-profile-bio">
+            ${member.bio}
+        </p>
+
+        <div class="member-profile-facts">
+            <h3>GET TO KNOW ${member.name}</h3>
+            <ul>
+                ${member.facts.map(fact => `<li>${fact}</li>`).join("")}
+            </ul>
+        </div>
+    `;
+
+    document.getElementById("memberModal").classList.add("active");
+}
+
+/* CLOSE MEMBER PROFILE */
+
+function closeMember() {
+    document.getElementById("memberModal").classList.remove("active");
+}
+
+/* CLOSE WHEN TAPPING OUTSIDE THE PROFILE */
+
+document.getElementById("memberModal").addEventListener("click", function(event) {
+    if (event.target === this) {
+        closeMember();
+    }
+});
+
+/* CLOSE WITH ESCAPE KEY */
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeMember();
+    }
+});
+</script>
+
+<!-- MUSIC SECTION -->
+
+<section id="music" class="music-section">
+
+    <p class="section-label">LISTEN TO XONARA</p>
+
+    <h2 class="section-title">
+        THEIR <span>MUSIC</span>
+    </h2>
+
+    <p class="about-description">
+        Discover the music, stories, and sounds of XONARA.
+    </p>
+
+    <div class="music-grid">
+
+        <div class="music-card">
+            <img src="TABI.JPG" alt="TABI cover">
+            <div class="music-info">
+                <h3>TABI</h3>
+                <p>XONARA's debut single.</p>
+                <a href="https://open.spotify.com/track/08eZIOB9t9wZHHwwXQT4cu?si=RcqSPAgDTKKCo7k8QV-6_Q" class="music-button" target="_self">
+                    LISTEN ON SPOTIFY
+                </a>
+            </div>
+        </div>
+
+        <div class="music-card">
+            <img src="PULA.JPG" alt="PULA cover">
+            <div class="music-info">
+                <h3>PULA</h3>
+                <p> celebrates XONARA’s journey and sisterhood. </p>
+                <a href="https://open.spotify.com/track/3ncshFCp6YZiPMycCSWZbP?si=RMpLCYezTYWUy9pljAq2PQ" 
+               class="music-button" 
+              target="_self">
+                    LISTEN ON SPOTIFY
+                </a>
+            </div>
+        </div>
+
+        <div class="music-card">
+            <img src="IMPERFECT.JPG" alt="IMPERFECT cover">
+            <div class="music-info">
+                <h3>IMPERFECT</h3>
+                <p>A song celebrating individuality.</p>
+                <a href="https://open.spotify.com/track/27u25Xi7maxRX0likQbKif?si=5aR-6lUbQSSpDRQvmOe5HA" class="music-button" target="_self">
+                    LISTEN ON SPOTIFY
+                </a>
+            </div>
+        </div>
+
+        <div class="music-card">
+            <img src="TABI ACOUSTIC.JPG" alt="TABI Acoustic cover">
+            <div class="music-info">
+                <h3>TABI (ACOUSTIC)</h3>
+                <p>Acoustic version of TABI.</p>
+                <a href="https://open.spotify.com/album/5UFlejzvK79BdkXZYj3WuY?si=TU5Uk7NVRuWoKkH-LvE-9g" class="music-button" target="_self">
+                    LISTEN ON SPOTIFY
+                </a>
+            </div>
+        </div>
+
+        <div class="music-card">
+            <img src="IN THE ZONE.JPG" alt="IN THE ZONE cover">
+            <div class="music-info">
+                <h3>IN THE ZONE</h3>
+                <p>A Collaboration song of 1Z Artist.</p>
+                <a href="https://open.spotify.com/album/1lQTA8pWLuZcAeAfWAmyeh?si=frrmiVb8QTaQSKA_vXNOXQ" class="music-button" target="_self">
+                    LISTEN ON SPOTIFY
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GALLERY SECTION -->
+
+<section id="gallery" class="gallery-section">
+
+    <p class="section-label">MOMENTS IN FRAME</p>
+
+    <h2 class="section-title">
+        PHOTO <span>GALLERY</span>
+    </h2>
+
+    <p class="about-description">
+        A collection of moments, memories, and stories
+        captured by XONARA.
+    </p>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="GALLERY1.JPG" alt="XONARA Photo 1">
+            <a href="GALLERY1.JPG" download="XONARA-GALLERY-1.JPG" class="download-button">DOWNLOAD PHOTO</a>
+        </div>
+
+        <div class="gallery-item">
+            <img src="GALLERY2.JPG" alt="XONARA Photo 2">
+            <a href="GALLERY2.JPG" download="XONARA-GALLERY-2.JPG" class="download-button">DOWNLOAD PHOTO</a>
+        </div>
+
+        <div class="gallery-item">
+            <img src="GALLERY3.JPG" alt="XONARA Photo 3">
+            <a href="GALLERY3.JPG" download="XONARA-GALLERY-3.JPG" class="download-button">DOWNLOAD PHOTO</a>
+        </div>
+
+        <div class="gallery-item">
+            <img src="GALLERY4.JPG" alt="XONARA Photo 4">
+            <a href="GALLERY4.JPG" download="XONARA-GALLERY-4.JPG" class="download-button">DOWNLOAD PHOTO</a>
+        </div>
+
+        <div class="gallery-item">
+            <img src="GALLERY5.JPG" alt="XONARA Photo 5">
+            <a href="GALLERY5.JPG" download="XONARA-GALLERY-5.JPG" class="download-button">DOWNLOAD PHOTO</a>
+        </div>
+
+        <div class="gallery-item">
+            <img src="GALLERY6.JPG" alt="XONARA Photo 6">
+            <a href="GALLERY6.JPG" download="XONARA-GALLERY-6.JPG" class="download-button">DOWNLOAD PHOTO</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BRANDS SECTION -->
+<section id="brands" class="brands-section">
+    <p class="section-label">BEYOND THE MUSIC</p>
+    <h2 class="section-title">BRAND <span>PARTNERSHIPS</span></h2>
+    <p class="about-description">
+        XONARA brings its energy and individuality to brands
+        through exciting collaborations and campaigns.
+    </p>
+
+    <div class="brands-grid">
+
+        <div class="brand-card">
+            <img src="OXGN.JPG" alt="XONARA for OXGN">
+            <div class="brand-info">
+                <h3>OXGN</h3>
+                <p>A youth-driven fashion brand celebrating self-expression, individuality, and everyday style.</p>
+            </div>
+        </div>
+
+        <div class="brand-card">
+            <img src="FINO.JPG" alt="XONARA for FINO">
+            <div class="brand-info">
+                <h3>FINO</h3>
+                <p> A Japanese-inspired haircare brand offering products designed to nourish and care for your hair.</p>
+            </div>
+        </div>
+
+        <div class="brand-card">
+            <img src="BONCHON.JPG" alt="XONARA for BONCHON">
+            <div class="brand-info">
+                <h3>BONCHON</h3>
+                <p>A Korean-inspired restaurant brand serving its signature crispy chicken and flavorful meals.</p>
+            </div>
+        </div>
+
+        <div class="brand-card">
+            <img src="PUREGOLD.JPG" alt="XONARA for PUREGOLD">
+            <div class="brand-info">
+                <h3>PUREGOLD</h3>
+                <p>A Filipino retail brand bringing everyday essentials and shopping convenience to communities.</p>
+            </div>
+        </div>
+
+        <div class="brand-card">
+            <img src="TIMEZONE.JPG" alt="XONARA for TIMEZONE">
+            <div class="brand-info">
+                <h3>TIMEZONE</h3>
+                <p>An entertainment destination filled with games, activities, and fun experiences for everyone.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <h2>XONARA</h2>
+    <p class="footer-tagline">SEVEN IN FRAME. ONE XONARA.</p>
+
+    <div class="footer-socials">
+        <a href="https://www.instagram.com/officialxonara/" target="_blank">INSTAGRAM</a>
+        <a href="https://www.tiktok.com/@officialxonara" target="_blank">TIKTOK</a>
+        <a href="https://x.com/officialxonara" target="_blank">X</a>
+    </div>
+
+    <p class="footer-credit">MADE BY @KAARIMANSI</p>
+    <p class="footer-copyright">FAN-MADE WEBSITE • NOT OFFICIALLY AFFILIATED WITH XONARA OR 1Z ENTERTAINMENT</p>
+</footer>
+
+</body>
+</html>
+
